@@ -1,0 +1,59 @@
+#+HUGO_BASE_DIR: ../
+#+HUGO_WEIGHT: auto
+
+#+TITLE: My first post
+#+DATE: 2022-11-10
+#+HUGO_TAGS: meta beginning 
+#+TAGS: emacs
+
+Hi,
+
+I frankly don't know where to begin, but I am glad you /somehow/ found
+your way here.
+
+* Why
+The entire reason behind me starting this was a braindump. You may
+share the same experience of gulping down a large amount of coffee,
+flexing your fingers, and browsing the web or frantically coding away
+at your mechanical keyboard.
+
+Whatever it may be, many of those great days (and nights) ended up being
+wasted for not writing down what I did, learned, discovered,
+regretted, etc.
+
+After a while, I decided to write these down, and what do you know, it
+ended up being so much content that I was blown away. Showing cool
+code snippets to friends on Discord became a bit annoying (mostly for
+them). Instead, I decided to share these experiences with like-minded
+folks and those who may wanna know what the end of the rabbithole
+looks like for some piece of technology.
+
+* Who
+I'm [[https://github.com/arian-d][Arian]]. A recent graduate with a B.S. in Computer Science. I like
+weird programming languages, operating systems, cybersecurity, and
+almost all things that pertain to software.
+
+* What
+I am going to write about /many/ things that I've done and plan on
+doing. Is it going to be [[https://www.gnu.org/software/emacs/][Emacs]]? [[https://www.openbsd.org/][OpenBSD]]? [[https://www.gentoo.org/][Gentoo]]? [[https://podman.io/][Podman]]? [[https://openzfs.org/wiki/Main_Page][ZFS]]?
+
+The answer to all of those is an absolute *yes*. The only thing holding
+me back is time and more caffeine. I implore you to click on as many
+links as you see here (provided you hover and they're not suspicious),
+and search anything that makes you curious. 
+
+With all this content comes the disadvantage of deterring people who
+may not find certain topics interesting. Some InfoSec folk shiver when
+there's mathy programming involved, and DevOps experts will yawn at
+the sight of "yet another docker and k8s 101 guide". This is /exactly/
+why I find blogs to be _perfect_; one can simply filter by tags and jump
+to the title they find interesting, so please, do judge this book by
+its cover 🙂.
+
+* Inspiration
+At the moment there's nothing here, but I wanna give my pre-thanks to
+blogs and websites that inspired me to start my own.
+- [[https://github.com/skeeto][Chris Wellons]]' [[https://nullprogram.com/][Null program]]
+- [[https://xeiaso.net/][Xe]]'s mind-blowing [[https://xeiaso.net/blog][blog]] 
+- [[https://www.jethro.dev/][Jethro Kuan]]'s  [[https://braindump.jethro.dev/][braindump]]
+
