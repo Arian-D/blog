@@ -1,7 +1,7 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://arian-d.github.io/blog/'
 languageCode = 'en-us'
 title = "Arian's blog"
-theme = "PaperMod"
+theme = "ananke"
 
 [markup.goldmark.renderer]
   unsafe = true
