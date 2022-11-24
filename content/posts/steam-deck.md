@@ -2,7 +2,7 @@
 title = "Steam Deck: The Linux User's Dream"
 date = 2022-11-23
 tags = ["gaming", "steamdeck", "linux", "arch"]
-draft = true
+draft = false
 +++
 
 When I received my [Steam Deck](https://www.steamdeck.com/) about -checks Steam account- 3 months

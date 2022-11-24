@@ -3,7 +3,7 @@
 #+HUGO_BASE_DIR: ../
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: gaming steamdeck linux arch
-#+HUGO_DRAFT: true
+#+HUGO_DRAFT: false
 
 When I received my [[https://www.steamdeck.com/][Steam Deck]] about -checks Steam account- 3 months
 ago, I was already aware of what it was [[https://www.steamdeck.com/en/tech][capable of]], considering that I
