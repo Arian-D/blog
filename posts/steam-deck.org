@@ -1,0 +1,180 @@
+#+TITLE: Steam Deck: The Linux User's Dream
+#+DATE: 2022-11-23
+#+HUGO_BASE_DIR: ../
+#+HUGO_WEIGHT: auto
+#+HUGO_TAGS: gaming steamdeck linux arch
+#+HUGO_DRAFT: true
+
+When I received my [[https://www.steamdeck.com/][Steam Deck]] about -checks Steam account- 3 months
+ago, I was already aware of what it was [[https://www.steamdeck.com/en/tech][capable of]], considering that I
+had been browsing [[https://www.reddit.com/r/steamdeck][r/SteamDeck]] while waiting for it. What I did _not_
+know was its capabilities as a Linux desktop or even server.
+
+You may ask "what is so special about another Switch clone?" if you
+don't know what it is, and if you do you may ask "what is so special
+about a handheld pc?"
+
+The truth is, [[https://www.valvesoftware.com/en][Valve]] got the hardware *and* the [[https://en.wikipedia.org/wiki/SteamOS][software]] aspects right;
+the latter being an [[https://archlinux.org/][Arch]]-based OS with /full/ root access (I'm talking
+~#~ shells and being able to ~sudo rm -rf /~ 😈), which is the main reason I
+was able to do so many things with it.
+
+* The hardware
+If you have been out of the loop, it's a normal Arch Linux machine,
+and by normal I mean the cpu is ~x86_64~ instead of ~Aarch64~ (ARM). While
+this might not lead to a great battery life like the Nintendo
+Switch[fn:battery-life], it does make it possible to run PC games, but
+more importantly you can even run things like [[https://www.reddit.com/r/homelab/comments/yg0alv/of_course_the_steam_deck_can_run_kubernetes/][Kubernetes]], old PC games,
+and pretty much most software that was made in the past few decades
+for Linux and Windows.
+
+
+[fn:battery-life] https://screenrant.com/steam-deck-battery-life-nintendo-switch/
+
+* The environment
+Just like any typical Arch install, SteamOS comes with an OpenSSH
+server:
+#+begin_src shell
+sudo systemctl statrt sshd
+#+end_src
+That's it! You now have remote access. You can do whatever you would
+do with a typical linux laptop. It compiles code faster than my
+T580 thinkpad, and it's half the price. 🙂.
+
+* The OS
+If you haven't been keeping up with the new wave of GNU/Linux OSs
+coming out, you might have missed a new theme:
+immutability[fn:immutable-os]. Essentially, the idea is that if you can't change it,
+you can't break it. Some recent ones that I have used are:
+- [[https://getfedora.org/coreos/][Fedora CoreOS]] :: Immutable server OS
+- [[https://silverblue.fedoraproject.org/][Fedora Silverblue]] :: similar to CoreOS, but with a Gnome desktop
+- [[https://microos.opensuse.org/][OpenSUSE MicroOS]] :: [[https://www.suse.com/][SUSE]]'s take on the same idea
+
+
+The big question you might ask is "if every package is managed /for/ me,
+how do I install things, or even modify things?" The answer is simple:
+containers. For desktop apps you would use [[https://www.flatpak.org/][Flatpak]]s, and for services
+you can use docker or [[https://podman.io/][podman]] (rootless and daemonless docker).
+
+You /can/ install stuff like
+#+begin_src shell
+sudo pacman -S <some tool>
+#+end_src
+but the problem is that the package would be wiped after a system
+update. I will discuss ideas on how to get around this [[*Distrobox][below]].
+
+[fn:immutable-os] If you have done any pure [[https://en.wikipedia.org/wiki/Functional_programming][functional programming]] (like
+[[https://www.haskell.org/][Haskell]]), this should seem familiar. /If/ this interests you, check out [[https://nixos.org/][NixOS]].
+
+* Experiments
+Now that you have a general idea of what type of system we're dealing
+with, let me tell you about the things I've tried on it
+
+** Virtualization
+The answer is a simple yes. This is not an m1 mac attempting to
+emulate another architecture; with a simple [[https://wiki.archlinux.org/title/QEMU][QEMU]] install, I was able
+to virtualize Terry Davis' [[https://templeos.org/][TempleOS]] just for fun, but you can
+virtualize Windows, or any other OS if you have the image for it. The
+cherry on top is that they can be added as a game to steam like [[https://steamcommunity.com/sharedfiles/filedetails/?id=156644206][any
+other game]].
+
+** Linux Desktop software
+Again, it's a normal machine. I installed [[https://github.com/doomemacs/doomemacs][Doom Emacs]], [[https://librewolf.net/][LibreWolf]], and
+Discord with no issues. The only thing to keep in mind is that if you
+would like to set keybindings and use it in game-mode, you'd need to
+add it as a non-steam game as mentioned [[*Virtualization][above]] or using [[https://github.com/PhilipK/BoilR][BoilR]].
+
+** Ansible
+Just like with /almost/ any other device that comes with SSH and Python,
+the steam deck works with ansible. The most useful module is the
+[[https://docs.ansible.com/ansible/latest/collections/community/general/flatpak_module.html][flatpak module]] for installing desktop apps. Check out my [[https://github.com/Arian-D/steam-deck-setup][playbooks]] to
+get an idea on how to declaratively-ish set up your Deck.
+
+** Distrobox
+Coming back to the point from the talk about [[*The OS][the OS]], you /technically/
+cannot install software globally, since the updates wipe your
+changes. An interesting way of getting around this is [[https://distrobox.privatedns.org/][Distrobox]], which
+I discovered from the community, and have since been using it on my
+other devices as well.
+
+Distrobox lets you run docker images of most Linux distributions, but
+it also applies changes that make it look like a real environment,
+such as mounting your home directory, getting GUI apps to work, and
+etc[fn:db].
+
+[fn:db] Distrobox only needs docker or podman, and since you cannot
+install either permanently, there is a script on their repo to take
+care of that. Check [[https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md][this]] out for more information.
+
+** Remote directory mounting
+Emulation on the Deck is great[fn:emulation], but newer consoles tend to have games
+that go beyond the usual 20-30G. Even on the model that I own with the
+512G SSD, it is not enough for storing tens of AAA games[fn:memory]. My desktop
+is always running, and it has more than enough storage, but how do we
+get the files across if they're stored remotely?[fn:remote]
+
+The answer comes back to my all time favorite protocol: SSH. You can
+do more than use a remote shell and transfer files; [[https://www.redhat.com/sysadmin/sshfs][SSHFS]] lets you
+mount directories over the network[fn:sshfs].
+
+Last piece of the puzzle is to get it to mount whenever there's a
+connection. You guess it! SystemD![fn:connection]
+
+SystemD lets you write and manage services as a [[https://wiki.archlinux.org/title/Systemd/User][normal user]], and it's
+great because logging and network dependency can be taken care of,
+without any hassle. A simple service that I wrote to mount my ps3
+games was this, which I put at ~.config/systemd/user/ps3.service~[fn:ssh]:
+
+#+begin_src conf
+[Unit]
+Description=Mount remote SSH directories
+After=network.target
+
+[Service]
+ExecStart=sshfs -f roms-server:roms/ps3 /home/deck/Emulation/roms/ps3
+ExecStop=fusermount -u /home/deck/Emulation/roms/ps3
+Restart=on-failure
+
+[Install]
+WantedBy=network.target
+#+end_src
+
+Now, enable the service with
+
+#+begin_src shell
+systemctl --user enable ps3
+#+end_src
+
+And voila! Now all of the remote games become visible when you turn on
+the Deck, without taking up any of the local storage.
+
+[fn:emulation] You can manually install emulators, use the [[http://retrodeck.net/][RetroDECK]]
+flatpak, or use [[https://www.emudeck.com/][EmuDeck]], which is what I did.
+
+[fn:remote] Just to clarify, we are not streaming the game, but rather
+the game roms. This would put the load on the Deck's APU, but it also
+runs much better than cloud gaming services, if your internet is slow.
+
+[fn:sshfs] This is very similar to [[https://en.wikipedia.org/wiki/Network_File_System][NFS]], but there is no need to open
+an extra port or install a new program, and obviously, SSH traffic is
+thoroughly encrypted.
+
+[fn:memory] The reason games -at least in my experience- run so
+smoothly is because of the fact that the games are loaded into memory,
+rather than actively interacting with the storage.
+
+[fn:ssh] ~roms-server~ in this instance is a remote host that hosts my
+roms which I aliased in ~.config/ssh~. You could also put
+~user@yourhost~ if you don't want to create a ~config~ file for SSH.
+
+[fn:connection] Another detail I'm omitting is the "What if I'm not
+home?" scenario. I personally have a [[https://docs.linuxserver.io/images/docker-wireguard][WireGuard]] vpn running with an
+open port on my router, but if you do _not_ want to open a port, there's
+always Tailscale. I highly suggest [[https://tailscale.com/blog/steam-deck/][this]] article by Xe, which goes
+significantly more in depth than other sources.
+
+* Final thoughts
+There is so much more to be done like [[https://steamdeckrepo.com/][changing your boot video]], [[https://www.reddit.com/r/SteamDeck/comments/xiw6hc/dual_screen_camera_monitor_setup_w_minor_update/][set up
+3ds with another display]], or just [[https://www.youtube.com/watch?v=ue0A2Sxr5Fc][use it as a gaming PC]], but this post
+wasn't meant to be a guide; these were simply things I did and learned. For
+an extensive guide hit up [[https://github.com/mikeroyal/Steam-Deck-Guide][Steam Deck Guide]].
