@@ -1,0 +1,89 @@
++++
+title = "AI on a laptop"
+date = 2024-05-29
+tags = ["llm", "llama", "thinkpad", "podman"]
+draft = false
++++
+
+The AI craze is going strong. You would think it'd be over by now, but
+big boy companies keep throwing their money at Nvidia GPUs and
+overpriced LLM subscriptions.
+
+For the average Joe, GPT4 and GPT4o are more than enough to do your
+day-to-day tasks or if you're a developer, you can just have OpenAI's
+API do everything you're too lazy to do. This all comes at a cost:
+
+Data privacy
+: Are you okay sending your or your company's data to
+    OpenAI's servers, even if they don't use it to train their future model?
+
+Security
+: Is your data going to be secure on their servers? [It's
+    not like they've ever had a breach](https://securityintelligence.com/articles/chatgpt-confirms-data-breach/).
+
+Censorship
+: Did Sam Altman ask the [underpaid kenyan workers](https://time.com/6247678/openai-chatgpt-kenya-workers/) to not
+    let you or the LLM talk about certain things?
+
+All of these concerns are valid, and while personally I don't care
+about certain conversations being leaked or being publicly attributed
+to me, I do care about the 3rd point.
+
+-   What if I'm trying to get the command to exploit a server I own? I'd
+    have to "jailbreak" GPT to convince it and that I'm doing it ethically.
+-   What if I want to curse to relieve stress? What if I want GPT to
+    write a story and have it use bad words? I'd have to bend over
+    backward just to get a simple thing out of it.
+-   What if some of the big boy companies (or even governments) decide
+    to ban the use of LLMs? Well, you know how that would go...
+
+You catch my drift, right? There are similar arguments for FOSS
+vs SaaS software. The difference in LLMs is that up until recently,
+you couldn't have a self-hosted AI waifu hallucinating on your PC
+unless you had sold a kidney or two to buy a used Nvidia card.
+
+Luckily, thanks to some very smart people, there now exists the
+possibility of running these models, on your PC with just a decent CPU
+and some RAM.
+
+I recently got [a new thinkpad](https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadp/thinkpad-p14s-gen-4-(14-inch-amd)-mobile-workstation/21k5001jus)[^fn:1] that came out last year and I luckily
+managed to buy it used from a 3rd party seller on Amazon. It's a beefy
+beast. It has
+
+-   An 8 core / 16 thread CPU, going up to 5-something GHz
+-   2k OLED display
+-   and a cherry on top, which is 64G of LPDDR5X RAM.
+
+Despite not having a dedicated GPU, and me not using the APU's [ROCm](https://www.amd.com/en/products/software/rocm.html),
+I can still run models fairly fast[^fn:2]
+
+Initially, I had tried [llama.cpp](https://github.com/ggerganov/llama.cpp), and it is still my go-to because of
+the [grammar feature](https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md). Recently, I've been using [ollama](https://ollama.com/), which is a bit
+extra for what I'm doing, but it has a nice and easy interface for
+chatting. It also has [an API](https://ollama.com/blog/openai-compatibility) that matches [OpenAI's API](https://github.com/openai/openai-openapi) more closely
+than [llama.cpp's server](https://github.com/ggerganov/llama.cpp/tree/master/examples/server).
+
+To share my daily process, I generally use podman to start a container
+with a named volume
+
+```sh
+podman run --rm -d --name ollama -v ollama:/root/.ollama -p 11434:11434 docker.io/ollama/ollama
+```
+
+and whenever I want to chat, I run something like this:
+
+```sh
+podman exec -it ollama ollama run dolphin-llama3:70b
+```
+
+The pulling mehcanism is similar to docker/podman where the "model" is
+pulled if it doesn't exist, and if it does, ollama will drop you in a
+chat interface.
+
+If you use Emacs, [gptel](https://github.com/karthink/gptel) is also a nice touch for not escaping the
+world's best operating system.
+
+[^fn:1]: Phoronix did [a review](https://www.phoronix.com/review/thinkpad-p14s-gen4) of it.
+[^fn:2]: I use [cpupower on Gentoo](https://wiki.gentoo.org/wiki/Power_management/Processor#cpupower) and set the frequency to use the
+    `performance` profile. I have no idea if that's the best way, but it
+    seems to speed things up based the usage I see on [btop](https://github.com/aristocratos/btop).
