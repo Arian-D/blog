@@ -26,7 +26,7 @@ everything here with a grain of salt.
 ## The recipe {#the-recipe}
 
 1.  Grind your coffee fine-ish. &asymp;450-500 &micro; m
-2.  Boil your water to 80^&circ;-90^&circ; Celsius
+2.  Boil your water to 80&deg;-90&deg; Celsius
 3.  Put the AeroPress filter in, lock the filter piece.
 4.  Pour in the coffee ground.
 5.  Pour 70-80 milliliters of water.
@@ -47,8 +47,8 @@ Grind
     figures may not be exact.
 
 Water
-: I just go with 80^&circ; for dark roasts, and closer to
-    90^&circ; for light to medium.
+: I just go with 80&deg; for dark roasts, and closer to
+    90&deg; for light to medium.
 
 Filter
 : I use the paper filter, but [according to AeroPress'

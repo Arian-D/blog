@@ -23,7 +23,7 @@ everything here with a grain of salt.
 
 * The recipe
 1. Grind your coffee fine-ish. \approx450-500 \micro m
-2. Boil your water to 80^\circ-90^\circ Celsius
+2. Boil your water to 80\deg-90\deg Celsius
 3. Put the AeroPress filter in, lock the filter piece.
 4. Pour in the coffee ground.
 5. Pour 70-80 milliliters of water.
@@ -39,8 +39,8 @@ everything here with a grain of salt.
   resulted in a better taste (for me). Another thing to note is that I
   haven't calibrated my grinder ([[https://1zpresso.coffee/k-ultra/][k-ultra]]) in a while, so those micron
   figures may not be exact.
-- Water :: I just go with 80^\circ for dark roasts, and closer to
-  90^\circ for light to medium.
+- Water :: I just go with 80\deg for dark roasts, and closer to
+  90\deg for light to medium.
 - Filter :: I use the paper filter, but [[https://aeropress.com/blogs/blog/aeropress-metal-filter-vs-paper-filters][according to AeroPress'
   website]], the metal filter is better for this style, since the
   metal lets in more of the oil and will result in a better texture.
