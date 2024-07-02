@@ -1,5 +1,5 @@
 +++
-title = "An mediocre pseudo-espresso recipe with the AeroPress"
+title = "A mediocre pseudo-espresso recipe with the AeroPress"
 date = 2024-07-02
 tags = ["coffee", "aeropress", "food"]
 draft = false

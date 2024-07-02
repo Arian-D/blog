@@ -1,4 +1,4 @@
-#+TITLE: An mediocre pseudo-espresso recipe with the AeroPress
+#+TITLE: A mediocre pseudo-espresso recipe with the AeroPress
 #+DATE: 2024-07-02
 #+HUGO_BASE_DIR: ../
 #+HUGO_WEIGHT: auto
