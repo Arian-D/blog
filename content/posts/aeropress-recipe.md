@@ -25,7 +25,7 @@ everything here with a grain of salt.
 
 ## The recipe {#the-recipe}
 
-1.  Grind your coffee fine-ish. &asymp;450-500 \\(\micro m\\)
+1.  Grind your coffee fine-ish. &asymp;450-500 &micro; m
 2.  Boil your water to 80&deg;-90&deg; Celsius
 3.  Put the AeroPress filter in, lock the filter piece.
 4.  Pour in the coffee ground.
