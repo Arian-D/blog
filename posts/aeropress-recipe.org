@@ -22,7 +22,7 @@ reasoning. Keep in mind that I'm an absolute novice, so take
 everything here with a grain of salt.
 
 * The recipe
-1. Grind your coffee fine-ish. \approx450-500 \micro m
+1. Grind your coffee fine-ish. \approx450-500 \(\micro m\)
 2. Boil your water to 80\deg-90\deg Celsius
 3. Put the AeroPress filter in, lock the filter piece.
 4. Pour in the coffee ground.
@@ -71,7 +71,8 @@ to do that on the same desk that I have my laptop on.
   checked the other manuals, and they don't seem to have the
   espresso-style. Regardless, this is what I initially started with
   and deviated to get more extraction.
-- [[https://www.javapresse.com/blogs/aeropress/can-aeropress-make-espresso][These]] [[https://www.javapresse.com/blogs/aeropress/aeropress-espresso-recipe][two]] blog posts were amazing. The recipe is different than mine,
+- [[https://www.javapresse.com/blogs/aeropress/can-aeropress-make-espresso][These]] [[https://www.javapresse.com/blogs/aeropress/aeropress-espresso-recipe][two]] blog posts were amazing. The recipe is different than
+  mine,
   but they're very valuable in terms of information.
 - [[https://coffeechronicler.com/aeropress-espresso/][This blog post]] mentions a more similar to mine, but uses the
   inverted method and has a shorter wait time (though more than the
@@ -83,9 +84,11 @@ to do that on the same desk that I have my laptop on.
   than mine, similar to the other sources, but the water temperature is
   closer.
 - Most importantly, [[https://www.youtube.com/channel/UCMb0O2CdPBNi-QqPk5T3gsQ][James Hoffmann]] and [[https://aeromatic.app/recipes/james-hoffmann-espresso-aeropress-recipe][his recipe]]. One distinction to
-  note is that his is older than this is older than [[https://youtu.be/jBXm8fCWdo8?si=G8kKbb8tSRq5i2X5&t=130]["Understanding The
-  AeroPress"]] (timestamped at the time\to extraction graph), which is
-  my most important deviation compared to other techniques.
+  note is that this is older than his
+  [[https://youtu.be/jBXm8fCWdo8?si=G8kKbb8tSRq5i2X5&t=130]["Understanding
+  The AeroPress"]] video (timestamped), which goes over extraction
+  over time, which is my most important deviation compared to other
+  techniques. 
 
 - I'll have to retry these things once I get the metal filter, but
   I'll keep researching and trying different things. Everyone has
