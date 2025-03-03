@@ -1,3 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Llm on Arian's blog</title><link>http://arian-d.github.io/blog/tags/llm/</link><description>Recent content in Llm on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>AI on a laptop</title><link>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</link><pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</guid><description>The AI craze is going strong. You would think it&amp;rsquo;d be over by now, but big boy companies keep throwing their money at Nvidia GPUs and overpriced LLM subscriptions.
-For the average Joe, GPT4 and GPT4o are more than enough to do your day-to-day tasks or if you&amp;rsquo;re a developer, you can just have OpenAI&amp;rsquo;s API do everything you&amp;rsquo;re too lazy to do. This all comes at a cost:
-Data privacy Are you okay sending your or your company&amp;rsquo;s data to OpenAI&amp;rsquo;s servers, even if they don&amp;rsquo;t use it to train their future model?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Llm on Arian's blog</title><link>http://arian-d.github.io/blog/tags/llm/</link><description>Recent content in Llm on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>AI on a laptop</title><link>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</link><pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</guid><description>&lt;p>The AI craze is going strong. You would think it&amp;rsquo;d be over by now, but
+big boy companies keep throwing their money at Nvidia GPUs and
+overpriced LLM subscriptions.&lt;/p>
+&lt;p>For the average Joe, GPT4 and GPT4o are more than enough to do your
+day-to-day tasks or if you&amp;rsquo;re a developer, you can just have OpenAI&amp;rsquo;s
+API do everything you&amp;rsquo;re too lazy to do. This all comes at a cost:&lt;/p>
+&lt;dl>
+&lt;dt>Data privacy&lt;/dt>
+&lt;dd>Are you okay sending your or your company&amp;rsquo;s data to
+OpenAI&amp;rsquo;s servers, even if they don&amp;rsquo;t use it to train their future model?&lt;/dd>
+&lt;dt>Security&lt;/dt>
+&lt;dd>Is your data going to be secure on their servers? &lt;a href="https://securityintelligence.com/articles/chatgpt-confirms-data-breach/">It&amp;rsquo;s
+not like they&amp;rsquo;ve ever had a breach&lt;/a>.&lt;/dd>
+&lt;dt>Censorship&lt;/dt>
+&lt;dd>Did Sam Altman ask the &lt;a href="https://time.com/6247678/openai-chatgpt-kenya-workers/">underpaid kenyan workers&lt;/a> to not
+let you or the LLM talk about certain things?&lt;/dd>
+&lt;/dl>
+&lt;p>All of these concerns are valid, and while personally I don&amp;rsquo;t care
+about certain conversations being leaked or being publicly attributed
+to me, I do care about the 3rd point.&lt;/p></description></item></channel></rss>

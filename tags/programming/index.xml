@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on Arian's blog</title><link>http://arian-d.github.io/blog/tags/programming/</link><description>Recent content in Programming on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 22 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/tags/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>My Favorite Little Operator</title><link>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</link><pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</guid><description>Sometimes, there are little things that solve so much that we take for granted. There&amp;rsquo;s also things that solve so much that aren&amp;rsquo;t used as often.
-Recently, I&amp;rsquo;ve been relying on ??, which is a very interesting operator called &amp;ldquo;null-coalescing operator&amp;rdquo;. A fairly seasoned programmer probably uses it very often and wouldn&amp;rsquo;t find this as fascinating as I did, but for me, it&amp;rsquo;s a game-changer.
-Take this for instance:
-const somevar = null; if (somevar === null) { console.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on Arian's blog</title><link>http://arian-d.github.io/blog/tags/programming/</link><description>Recent content in Programming on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 22 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/tags/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>My Favorite Little Operator</title><link>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</link><pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</guid><description>&lt;p>Sometimes, there are little things that solve so much that we take for
+granted. There&amp;rsquo;s also things that solve so much that aren&amp;rsquo;t used as
+often.&lt;/p>
+&lt;p>Recently, I&amp;rsquo;ve been relying on &lt;a href="https://en.wikipedia.org/wiki/Null_coalescing_operator">??&lt;/a>, which is a very
+interesting operator called &amp;ldquo;null-coalescing operator&amp;rdquo;. A fairly
+seasoned programmer probably uses it very often and wouldn&amp;rsquo;t find this
+as fascinating as I did, but for me, it&amp;rsquo;s a game-changer.&lt;/p>
+&lt;p>Take this for instance:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">somevar&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">somevar&lt;/span> &lt;span style="color:#f92672">===&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;non-null value&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">somevar&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, we print out &lt;code>somevar&lt;/code>, and if it&amp;rsquo;s null, we print a string. You
+can also use a ternary operator to clean it up and rewrite it like
+this.&lt;/p></description></item></channel></rss>
