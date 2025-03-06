@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arian's blog</title><link>http://arian-d.github.io/blog/</link><description>Recent content on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 14 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Notes from a first con</title><link>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</link><pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</guid><description>&lt;p>I went to &lt;a href="http://defcon.org/">defcon&lt;/a> for the first time, and it was probably one of the
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arian's blog</title><link>http://arian-d.github.io/blog/</link><description>Recent content on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 03 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Practical shebangs</title><link>http://arian-d.github.io/blog/posts/practical-shebang/</link><pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/practical-shebang/</guid><description>&lt;p>Usually, one of the first things a Linux/Unix user learns is to create
+a shell script. The process generally goes like this:&lt;/p>
+&lt;ol>
+&lt;li>Write a &lt;code>script.sh&lt;/code> file.&lt;/li>
+&lt;li>Fill it with
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>echo &lt;span style="color:#e6db74">&amp;#34;Hello world&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Make it executable with &lt;code>chmod +x script.sh&lt;/code>&lt;/li>
+&lt;li>And finally, run it with &lt;code>./script.sh&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>Nice and simple, and most *nix users are familiar with this. For an
+average user, the journey ends right then and there, but if you&amp;rsquo;re
+interested, you realize that there&amp;rsquo;s always ways to use and abuse the
+tooling.&lt;/p></description></item><item><title>Notes from a first con</title><link>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</link><pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</guid><description>&lt;p>I went to &lt;a href="http://defcon.org/">defcon&lt;/a> for the first time, and it was probably one of the
 best experiences of my life, if not the best. Here are some
 notes to self for the second time that might help another first-timer
 next time around.&lt;/p>

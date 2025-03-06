@@ -1,0 +1,64 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Practical shebangs | Arian's blog</title>
+<meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content='Usually, one of the first things a Linux/Unix user learns is to create
+a shell script. The process generally goes like this:
+
+Write a script.sh file.
+Fill it with
+#!/bin/bash
+echo "Hello world"
+
+Make it executable with chmod +x script.sh
+And finally, run it with ./script.sh
+
+Nice and simple, and most *nix users are familiar with this. For an
+average user, the journey ends right then and there, but if you&rsquo;re
+interested, you realize that there&rsquo;s always ways to use and abuse the
+tooling.'><meta name=generator content="Hugo 0.145.0"><meta name=robots content="index, follow"><link rel=stylesheet href=/blog/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css><link rel=canonical href=http://arian-d.github.io/blog/posts/practical-shebang/><meta property="og:url" content="http://arian-d.github.io/blog/posts/practical-shebang/"><meta property="og:site_name" content="Arian's blog"><meta property="og:title" content="Practical shebangs"><meta property="og:description" content='Usually, one of the first things a Linux/Unix user learns is to create a shell script. The process generally goes like this:
+Write a script.sh file. Fill it with #!/bin/bash echo "Hello world" Make it executable with chmod +x script.sh And finally, run it with ./script.sh Nice and simple, and most *nix users are familiar with this. For an average user, the journey ends right then and there, but if you’re interested, you realize that there’s always ways to use and abuse the tooling.'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-03-03T00:00:00+00:00"><meta property="article:modified_time" content="2025-03-03T00:00:00+00:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Unix"><meta property="article:tag" content="Posix"><meta property="article:tag" content="Shell"><meta property="article:tag" content="Env"><meta itemprop=name content="Practical shebangs"><meta itemprop=description content='Usually, one of the first things a Linux/Unix user learns is to create a shell script. The process generally goes like this:
+Write a script.sh file. Fill it with #!/bin/bash echo "Hello world" Make it executable with chmod +x script.sh And finally, run it with ./script.sh Nice and simple, and most *nix users are familiar with this. For an average user, the journey ends right then and there, but if you’re interested, you realize that there’s always ways to use and abuse the tooling.'><meta itemprop=datePublished content="2025-03-03T00:00:00+00:00"><meta itemprop=dateModified content="2025-03-03T00:00:00+00:00"><meta itemprop=wordCount content="661"><meta itemprop=keywords content="Linux,Unix,Posix,Shell,Env"><meta name=twitter:card content="summary"><meta name=twitter:title content="Practical shebangs"><meta name=twitter:description content='Usually, one of the first things a Linux/Unix user learns is to create a shell script. The process generally goes like this:
+Write a script.sh file. Fill it with #!/bin/bash echo "Hello world" Make it executable with chmod +x script.sh And finally, run it with ./script.sh Nice and simple, and most *nix users are familiar with this. For an average user, the journey ends right then and there, but if you’re interested, you realize that there’s always ways to use and abuse the tooling.'></head><body class="ma0 avenir bg-near-white production"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/blog/ class="f3 fw2 hover-white no-underline white-90 dib">Arian's blog</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">Posts</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Practical shebangs</h1><time class="f6 mv4 dib tracked" datetime=2025-03-03T00:00:00Z>March 3, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Usually, one of the first things a Linux/Unix user learns is to create
+a shell script. The process generally goes like this:</p><ol><li>Write a <code>script.sh</code> file.</li><li>Fill it with<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>echo <span style=color:#e6db74>&#34;Hello world&#34;</span>
+</span></span></code></pre></div></li><li>Make it executable with <code>chmod +x script.sh</code></li><li>And finally, run it with <code>./script.sh</code></li></ol><p>Nice and simple, and most *nix users are familiar with this. For an
+average user, the journey ends right then and there, but if you&rsquo;re
+interested, you realize that there&rsquo;s always ways to use and abuse the
+tooling.</p><p>In this post, I want to show some common (and uncommon) things I do
+with shebangs. This might not be new or interesting to the sysadmin
+wizards with decades of experience, but for a dumb zoomer, such as
+yours truly, this is all fascinating and useful.</p><h2 id=shebangs-aren-t-just-for-shell-scripts>Shebangs aren&rsquo;t just for shell scripts</h2><p>You probably have already seen python scripts with <code>#!/usr/bin/python</code>
+at the top. As you can see, <em>any</em> program could be passed at the top;
+all that happens is that the path of the file is passed as the first
+argument of the shebang.</p><p>You could even have a text file that&rsquo;s printed whenever you execute it</p><pre tabindex=0><code class=language-nil data-lang=nil>#!/bin/cat
+Hello world!
+</code></pre><p>or have a file destroy itself when you execute it</p><pre tabindex=0><code class=language-nil data-lang=nil>#!/bin/rm
+This file will self-destruct when you execute it.
+</code></pre><p>The pattern should be clear: the interpreter/executor goes in the
+shebang, and the input goes in lines after. This is a powerful idea.</p><h2 id=the-limit>The limit</h2><p>Well, there is a limit. It&rsquo;s the number of arguments. You can do
+things like <code>#!/usr/bin/ls -l</code>, but not something like <code>#!/usr/bin/ls -l -a</code>. Why? Because the two flags are clumped together as <code>"-l -a"</code>.
+Solution? <code>env</code>.</p><p><del>Victims</del> users of NixOS or Guix System can probably see where this is
+going. On those immutable systems, your <code>/bin</code> generally only contains
+<code>sh</code>, and <code>/usr/bin/</code> only contains <code>env</code>. Because of that, you&rsquo;ll see a lot
+of scripts that do things like <code>#!/usr/bin/env bash</code>, instead of
+hard-referencing the executables.</p><p>What we&rsquo;d want to focus on is the power of <code>env</code>, mainly the <code>-S</code><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> flag
+which allows us to include multiple arguments. Another limitation is
+in-lining the file name, instead of placing it at the end of the
+line. <code>sh</code>&rsquo;s <code>"$0"</code> lets us do that. For instance, you can do</p><pre tabindex=0><code class=language-nil data-lang=nil>#!/usr/bin/env -S sh -c &#39;scp &#34;$0&#34; server:/tmp&#39;
+
+This file will be uploaded to the server&#39;s /tmp directory upon execution.
+</code></pre><h2 id=some-examples>Some examples</h2><p>Now that the gibberish (hopefully) makes more sense, let&rsquo;s look at
+what we can do with it.</p><dl><dt><strong>Dockerfiles</strong></dt><dd>I have a lot of <code>something.Dockerfile</code> files that are
+on my machine. Most of the time, I just wanna build and run them
+with one command. To accomplish that, I add this line to all of my Dockerfiles<pre tabindex=0><code class=language-nil data-lang=nil>#!/usr/bin/env -S sh -c &#39;docker build -t $(basename &#34;$0&#34; .Dockerfile) -f &#34;$0&#34; . &amp;&amp; docker run --rm -it $(basename &#34;$0&#34; .Dockerfile) bash&#39;
+</code></pre><p>This assumes your file&rsquo;s extension is <code>.Dockerfile</code> and you want to
+launch bash when you enter the container, but remember that you can
+always change it based on your usage.</p></dd><dt><strong>VPN</strong></dt><dd>I have a wireguard server at home, and whenever I needed to
+use my configuration I&rsquo;d have to do <code>wg setconf ...</code>. Then, I realized
+I can sneak in sudo in the shebang. Now, the first line of my
+wireguard config reads <code>#!/usr/bin/env -S sudo wg setconf wg0</code> and I
+just do <code>./wg0.conf</code> whenever I need to connect. I don&rsquo;t use OpenVPN,
+but you can probably do something similar.</dd><dt><strong>Nix and Guix shells</strong></dt><dd>I can show examples of these, but instead
+I&rsquo;ll refer you to the <a href=https://nixos.wiki/wiki/Nix-shell_shebang>Nix wiki</a> and the <a href=https://guix.gnu.org/manual/devel/en/html_node/Invoking-guix-shell.html#index-shebang_002c-for-guix-shell>Guix manual</a> for more
+comprehensive examples and description.</dd><dt><strong>uv</strong></dt><dd>You can use uv in a similar fashion as Nix, and pass
+dependencies in a multi-line shebang. Check out this <a href=https://treyhunner.com/2024/12/lazy-self-installing-python-scripts-with-uv/>post</a> for more
+info.</dd><dt><strong>Kubernetes</strong></dt><dd><code>#!/usr/bin/env kubectl apply -f</code></dd><dt><strong>Ansible</strong></dt><dd><code>#!/usr/bin/env ansible-playbook</code>.</dd><dt><strong>Emacs Org-mode</strong></dt><dd>Watch <a href=https://emacsconf.org/2021/talks/exec/>this</a>.</dd></dl><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Unfortunately, the <code>-S</code> flag is not part of the <a href=https://pubs.opengroup.org/onlinepubs/9799919799/utilities/env.html>POSIX standard</a>, but
+you can still use this on Linux and FreeBSD.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div><ul class=pa0><li class="list di"><a href=/blog/tags/linux/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Linux</a></li><li class="list di"><a href=/blog/tags/unix/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Unix</a></li><li class="list di"><a href=/blog/tags/posix/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Posix</a></li><li class="list di"><a href=/blog/tags/shell/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Shell</a></li><li class="list di"><a href=/blog/tags/env/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Env</a></li></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links"><p class="f5 b mb3">Related</p><ul class="pa0 list"><li class=mb2><a href=/blog/posts/ngrok-systemd/>Ngrok SystemD Service</a></li><li class=mb2><a href=/blog/posts/steam-deck/>Steam Deck: The Linux User's Dream</a></li></ul></div></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=http://arian-d.github.io/blog/>&copy; Arian's blog 2025</a><div><div class=ananke-socials></div></div></div></footer></body></html>
