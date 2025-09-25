@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rant on Arian's blog</title><link>http://arian-d.github.io/blog/tags/rant/</link><description>Recent content in Rant on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/tags/rant/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern editing needs</title><link>http://arian-d.github.io/blog/posts/modern-editing-needs/</link><pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/modern-editing-needs/</guid><description>&lt;p&gt;Times have changed. The boomer-coded text editor definition of a grid
+of bytes is just not enough. Code has structure, tooling, footguns
+(especially when it&amp;rsquo;s a dynamically typed language), and many other
+attributes that shouldn&amp;rsquo;t be edited by typing &lt;code&gt;vi code.py&lt;/code&gt; into a
+console and expecting things to be done in a timely manner while not
+making mistakes. It simply is not possible by a bad developer like me.&lt;/p&gt;
+&lt;h2 id="a-zoomer-perspective-of-the-past"&gt;A zoomer perspective of the past&lt;/h2&gt;
+&lt;p&gt;When I started to &lt;em&gt;seriously&lt;/em&gt; code, I was already in college and LSPs
+were a thing. While IDEs are things I&amp;rsquo;m familiar with and use, LSPs
+bridge 90% of the gap. From what I&amp;rsquo;ve read on the interwebs, the
+IDE-only era was grim, and text editors that had genuine advantages
+(Emacs for extensibility and Vim for efficient editing) had their own
+matrix of extensions that provided a subpar experience. There were
+hacks for IDE-like features like &lt;a href="https://github.com/haskell/ghcide"&gt;ghcide&lt;/a&gt;, but they were never
+sufficient, and those hacks were for &lt;a href="https://knowyourmeme.com/memes/wagie"&gt;corpowagie&lt;/a&gt;s (who didn&amp;rsquo;t write
+Haskell).&lt;/p&gt;</description></item></channel></rss>

@@ -1,101 +1,116 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Arian's blog</title><link>http://arian-d.github.io/blog/posts/</link><description>Recent content in Posts on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Guix System on WSL</title><link>http://arian-d.github.io/blog/posts/guix-on-wsl/</link><pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/guix-on-wsl/</guid><description>&lt;p>If you know what both &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/about">WSL&lt;/a> and &lt;a href="https://guix.gnu.org/#get-guix-system">Guix System&lt;/a>, your first reaction might
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Arian's blog</title><link>http://arian-d.github.io/blog/posts/</link><description>Recent content in Posts on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Modern editing needs</title><link>http://arian-d.github.io/blog/posts/modern-editing-needs/</link><pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/modern-editing-needs/</guid><description>&lt;p&gt;Times have changed. The boomer-coded text editor definition of a grid
+of bytes is just not enough. Code has structure, tooling, footguns
+(especially when it&amp;rsquo;s a dynamically typed language), and many other
+attributes that shouldn&amp;rsquo;t be edited by typing &lt;code&gt;vi code.py&lt;/code&gt; into a
+console and expecting things to be done in a timely manner while not
+making mistakes. It simply is not possible by a bad developer like me.&lt;/p&gt;
+&lt;h2 id="a-zoomer-perspective-of-the-past"&gt;A zoomer perspective of the past&lt;/h2&gt;
+&lt;p&gt;When I started to &lt;em&gt;seriously&lt;/em&gt; code, I was already in college and LSPs
+were a thing. While IDEs are things I&amp;rsquo;m familiar with and use, LSPs
+bridge 90% of the gap. From what I&amp;rsquo;ve read on the interwebs, the
+IDE-only era was grim, and text editors that had genuine advantages
+(Emacs for extensibility and Vim for efficient editing) had their own
+matrix of extensions that provided a subpar experience. There were
+hacks for IDE-like features like &lt;a href="https://github.com/haskell/ghcide"&gt;ghcide&lt;/a&gt;, but they were never
+sufficient, and those hacks were for &lt;a href="https://knowyourmeme.com/memes/wagie"&gt;corpowagie&lt;/a&gt;s (who didn&amp;rsquo;t write
+Haskell).&lt;/p&gt;</description></item><item><title>Guix System on WSL</title><link>http://arian-d.github.io/blog/posts/guix-on-wsl/</link><pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/guix-on-wsl/</guid><description>&lt;p&gt;If you know what both &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/about"&gt;WSL&lt;/a&gt; and &lt;a href="https://guix.gnu.org/#get-guix-system"&gt;Guix System&lt;/a&gt;, your first reaction might
 be a bit of a surprise. WSL is Microsoft&amp;rsquo;s Linux subsystem for
-Windows, a proprietary operating system that embeds &lt;a href="https://answers.microsoft.com/en-us/microsoftedge/forum/all/how-can-i-get-rid-of-my-login-screen-idiotically/0e7801ef-1b32-4f07-884e-ff9384c67d0b">candy crush ads&lt;/a> in
+Windows, a proprietary operating system that embeds &lt;a href="https://answers.microsoft.com/en-us/microsoftedge/forum/all/how-can-i-get-rid-of-my-login-screen-idiotically/0e7801ef-1b32-4f07-884e-ff9384c67d0b"&gt;candy crush ads&lt;/a&gt; in
 the start bar that is less stable than its alternatives, and
 everything it stands for screams corporate, while GNU Guix System is a
-&lt;a href="https://www.gnu.org/philosophy/free-sw.en.html">free&lt;/a> OS trying to be as pure as possible, both in terms of being
+&lt;a href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;free&lt;/a&gt; OS trying to be as pure as possible, both in terms of being
 immutable and also avoiding non-free software (not just proprietary,
 but also non-free source-available software). Guix is the antithesis
-of Windows.&lt;/p></description></item><item><title>Practical shebangs</title><link>http://arian-d.github.io/blog/posts/practical-shebang/</link><pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/practical-shebang/</guid><description>&lt;p>Usually, one of the first things a Linux/Unix user learns is to create
-a shell script. The process generally goes like this:&lt;/p>
-&lt;ol>
-&lt;li>Write a &lt;code>script.sh&lt;/code> file.&lt;/li>
-&lt;li>Fill it with
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/bash
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>echo &lt;span style="color:#e6db74">&amp;#34;Hello world&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>Make it executable with &lt;code>chmod +x script.sh&lt;/code>&lt;/li>
-&lt;li>And finally, run it with &lt;code>./script.sh&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;p>Nice and simple, and most *nix users are familiar with this. For an
+of Windows.&lt;/p&gt;</description></item><item><title>Practical shebangs</title><link>http://arian-d.github.io/blog/posts/practical-shebang/</link><pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/practical-shebang/</guid><description>&lt;p&gt;Usually, one of the first things a Linux/Unix user learns is to create
+a shell script. The process generally goes like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Write a &lt;code&gt;script.sh&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Fill it with
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;Hello world&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Make it executable with &lt;code&gt;chmod +x script.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;And finally, run it with &lt;code&gt;./script.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nice and simple, and most *nix users are familiar with this. For an
 average user, the journey ends right then and there, but if you&amp;rsquo;re
 interested, you realize that there&amp;rsquo;s always ways to use and abuse the
-tooling.&lt;/p></description></item><item><title>Notes from a first con</title><link>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</link><pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</guid><description>&lt;p>I went to &lt;a href="http://defcon.org/">defcon&lt;/a> for the first time, and it was probably one of the
+tooling.&lt;/p&gt;</description></item><item><title>Notes from a first con</title><link>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</link><pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/notes-for-a-first-con/</guid><description>&lt;p&gt;I went to &lt;a href="http://defcon.org/"&gt;defcon&lt;/a&gt; for the first time, and it was probably one of the
 best experiences of my life, if not the best. Here are some
 notes to self for the second time that might help another first-timer
-next time around.&lt;/p>
-&lt;h2 id="talks">Talks&lt;/h2>
-&lt;p>I only went to one, and I probably won&amp;rsquo;t go to that many next
+next time around.&lt;/p&gt;
+&lt;h2 id="talks"&gt;Talks&lt;/h2&gt;
+&lt;p&gt;I only went to one, and I probably won&amp;rsquo;t go to that many next
 time. Most talks are published, and while they&amp;rsquo;re the sorts of talks
-that grab 100% of my attention, I feel &lt;a href="https://en.wikipedia.org/wiki/Fear_of_missing_out">FOMO&lt;/a> watching them versus
-doing things that I cannot do later.&lt;/p></description></item><item><title>A mediocre pseudo-espresso recipe with the AeroPress</title><link>http://arian-d.github.io/blog/posts/aeropress-recipe/</link><pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/aeropress-recipe/</guid><description>&lt;p>A real espresso requires an espresso machine, and that&amp;rsquo;s somewhat
-inconvenient for an average Joe like me, because&lt;/p>
-&lt;ul>
-&lt;li>I can&amp;rsquo;t afford one.&lt;/li>
-&lt;li>I&amp;rsquo;m not willing to spend that much money, if I could afford one.&lt;/li>
-&lt;li>If I was willing to buy one and could afford it, I wouldn&amp;rsquo;t wanna
-bring it to the office, since I wouldn&amp;rsquo;t be able to use it at home.&lt;/li>
-&lt;/ul>
-&lt;p>So, what can I do? I&amp;rsquo;m not willing to pay someone to make it for me at
+that grab 100% of my attention, I feel &lt;a href="https://en.wikipedia.org/wiki/Fear_of_missing_out"&gt;FOMO&lt;/a&gt; watching them versus
+doing things that I cannot do later.&lt;/p&gt;</description></item><item><title>A mediocre pseudo-espresso recipe with the AeroPress</title><link>http://arian-d.github.io/blog/posts/aeropress-recipe/</link><pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/aeropress-recipe/</guid><description>&lt;p&gt;A real espresso requires an espresso machine, and that&amp;rsquo;s somewhat
+inconvenient for an average Joe like me, because&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I can&amp;rsquo;t afford one.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m not willing to spend that much money, if I could afford one.&lt;/li&gt;
+&lt;li&gt;If I was willing to buy one and could afford it, I wouldn&amp;rsquo;t wanna
+bring it to the office, since I wouldn&amp;rsquo;t be able to use it at home.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, what can I do? I&amp;rsquo;m not willing to pay someone to make it for me at
 Starbucks, because it&amp;rsquo;s pricey and has never tasted good (to me). There are some
-great &lt;a href="https://en.wikipedia.org/wiki/Third-wave_coffee">3rd wave&lt;/a> cafe&amp;rsquo;s near me, but then again, I can&amp;rsquo;t leave the
-office 5 times a day to buy a fresh shot and come back.&lt;/p></description></item><item><title>AI on a laptop</title><link>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</link><pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</guid><description>&lt;p>The AI craze is going strong. You would think it&amp;rsquo;d be over by now, but
+great &lt;a href="https://en.wikipedia.org/wiki/Third-wave_coffee"&gt;3rd wave&lt;/a&gt; cafe&amp;rsquo;s near me, but then again, I can&amp;rsquo;t leave the
+office 5 times a day to buy a fresh shot and come back.&lt;/p&gt;</description></item><item><title>AI on a laptop</title><link>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</link><pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/ai-on-a-laptop/</guid><description>&lt;p&gt;The AI craze is going strong. You would think it&amp;rsquo;d be over by now, but
 big boy companies keep throwing their money at Nvidia GPUs and
-overpriced LLM subscriptions.&lt;/p>
-&lt;p>For the average Joe, GPT4 and GPT4o are more than enough to do your
+overpriced LLM subscriptions.&lt;/p&gt;
+&lt;p&gt;For the average Joe, GPT4 and GPT4o are more than enough to do your
 day-to-day tasks or if you&amp;rsquo;re a developer, you can just have OpenAI&amp;rsquo;s
-API do everything you&amp;rsquo;re too lazy to do. This all comes at a cost:&lt;/p>
-&lt;dl>
-&lt;dt>Data privacy&lt;/dt>
-&lt;dd>Are you okay sending your or your company&amp;rsquo;s data to
-OpenAI&amp;rsquo;s servers, even if they don&amp;rsquo;t use it to train their future model?&lt;/dd>
-&lt;dt>Security&lt;/dt>
-&lt;dd>Is your data going to be secure on their servers? &lt;a href="https://securityintelligence.com/articles/chatgpt-confirms-data-breach/">It&amp;rsquo;s
-not like they&amp;rsquo;ve ever had a breach&lt;/a>.&lt;/dd>
-&lt;dt>Censorship&lt;/dt>
-&lt;dd>Did Sam Altman ask the &lt;a href="https://time.com/6247678/openai-chatgpt-kenya-workers/">underpaid kenyan workers&lt;/a> to not
-let you or the LLM talk about certain things?&lt;/dd>
-&lt;/dl>
-&lt;p>All of these concerns are valid, and while personally I don&amp;rsquo;t care
+API do everything you&amp;rsquo;re too lazy to do. This all comes at a cost:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Data privacy&lt;/dt&gt;
+&lt;dd&gt;Are you okay sending your or your company&amp;rsquo;s data to
+OpenAI&amp;rsquo;s servers, even if they don&amp;rsquo;t use it to train their future model?&lt;/dd&gt;
+&lt;dt&gt;Security&lt;/dt&gt;
+&lt;dd&gt;Is your data going to be secure on their servers? &lt;a href="https://securityintelligence.com/articles/chatgpt-confirms-data-breach/"&gt;It&amp;rsquo;s
+not like they&amp;rsquo;ve ever had a breach&lt;/a&gt;.&lt;/dd&gt;
+&lt;dt&gt;Censorship&lt;/dt&gt;
+&lt;dd&gt;Did Sam Altman ask the &lt;a href="https://time.com/6247678/openai-chatgpt-kenya-workers/"&gt;underpaid kenyan workers&lt;/a&gt; to not
+let you or the LLM talk about certain things?&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;All of these concerns are valid, and while personally I don&amp;rsquo;t care
 about certain conversations being leaked or being publicly attributed
-to me, I do care about the 3rd point.&lt;/p></description></item><item><title>My Favorite Little Operator</title><link>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</link><pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</guid><description>&lt;p>Sometimes, there are little things that solve so much that we take for
+to me, I do care about the 3rd point.&lt;/p&gt;</description></item><item><title>My Favorite Little Operator</title><link>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</link><pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/my-favorite-little-operator/</guid><description>&lt;p&gt;Sometimes, there are little things that solve so much that we take for
 granted. There&amp;rsquo;s also things that solve so much that aren&amp;rsquo;t used as
-often.&lt;/p>
-&lt;p>Recently, I&amp;rsquo;ve been relying on &lt;a href="https://en.wikipedia.org/wiki/Null_coalescing_operator">??&lt;/a>, which is a very
+often.&lt;/p&gt;
+&lt;p&gt;Recently, I&amp;rsquo;ve been relying on &lt;a href="https://en.wikipedia.org/wiki/Null_coalescing_operator"&gt;??&lt;/a&gt;, which is a very
 interesting operator called &amp;ldquo;null-coalescing operator&amp;rdquo;. A fairly
 seasoned programmer probably uses it very often and wouldn&amp;rsquo;t find this
-as fascinating as I did, but for me, it&amp;rsquo;s a game-changer.&lt;/p>
-&lt;p>Take this for instance:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">somevar&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">somevar&lt;/span> &lt;span style="color:#f92672">===&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;non-null value&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">else&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">somevar&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, we print out &lt;code>somevar&lt;/code>, and if it&amp;rsquo;s null, we print a string. You
+as fascinating as I did, but for me, it&amp;rsquo;s a game-changer.&lt;/p&gt;
+&lt;p&gt;Take this for instance:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;somevar&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;somevar&lt;/span&gt; &lt;span style="color:#f92672"&gt;===&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;console&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;non-null value&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;console&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;somevar&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here, we print out &lt;code&gt;somevar&lt;/code&gt;, and if it&amp;rsquo;s null, we print a string. You
 can also use a ternary operator to clean it up and rewrite it like
-this.&lt;/p></description></item><item><title>Ngrok SystemD Service</title><link>http://arian-d.github.io/blog/posts/ngrok-systemd/</link><pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/ngrok-systemd/</guid><description>&lt;p>This is going to be a quick post, but it&amp;rsquo;s still something that I
-like. I love systemd, and try to (over)use it every time I can.&lt;/p>
-&lt;p>This is one of those use-cases where I can use &lt;a href="https://ngrok.com/">ngrok&lt;/a> to freely demo my
+this.&lt;/p&gt;</description></item><item><title>Ngrok SystemD Service</title><link>http://arian-d.github.io/blog/posts/ngrok-systemd/</link><pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/ngrok-systemd/</guid><description>&lt;p&gt;This is going to be a quick post, but it&amp;rsquo;s still something that I
+like. I love systemd, and try to (over)use it every time I can.&lt;/p&gt;
+&lt;p&gt;This is one of those use-cases where I can use &lt;a href="https://ngrok.com/"&gt;ngrok&lt;/a&gt; to freely demo my
 app without having to set up a cloud instance or open up a port in my
 router. The simple usage of running ngrok is fine for simple cases
 like hosting a minecraft server for an hour, but if you need to run it
 in the background you&amp;rsquo;d need a service. This is all done without the
-use of &lt;code>sudo&lt;/code> or becoming root; you just need to set up ngrok and have a
-machine with systemd.&lt;/p></description></item><item><title>Steam Deck: The Linux User's Dream</title><link>http://arian-d.github.io/blog/posts/steam-deck/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/steam-deck/</guid><description>&lt;p>When I received my &lt;a href="https://www.steamdeck.com/">Steam Deck&lt;/a> about -checks Steam account- 3 months
-ago, I was already aware of what it was &lt;a href="https://www.steamdeck.com/en/tech">capable of&lt;/a>, considering that I
-had been browsing &lt;a href="https://www.reddit.com/r/steamdeck">r/SteamDeck&lt;/a> while waiting for it. What I did &lt;span class="underline">not&lt;/span>
-know was its capabilities as a Linux desktop or even server.&lt;/p>
-&lt;p>You may ask &amp;ldquo;what is so special about another Switch clone?&amp;rdquo; if you
+use of &lt;code&gt;sudo&lt;/code&gt; or becoming root; you just need to set up ngrok and have a
+machine with systemd.&lt;/p&gt;</description></item><item><title>Steam Deck: The Linux User's Dream</title><link>http://arian-d.github.io/blog/posts/steam-deck/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/steam-deck/</guid><description>&lt;p&gt;When I received my &lt;a href="https://www.steamdeck.com/"&gt;Steam Deck&lt;/a&gt; about -checks Steam account- 3 months
+ago, I was already aware of what it was &lt;a href="https://www.steamdeck.com/en/tech"&gt;capable of&lt;/a&gt;, considering that I
+had been browsing &lt;a href="https://www.reddit.com/r/steamdeck"&gt;r/SteamDeck&lt;/a&gt; while waiting for it. What I did &lt;span class="underline"&gt;not&lt;/span&gt;
+know was its capabilities as a Linux desktop or even server.&lt;/p&gt;
+&lt;p&gt;You may ask &amp;ldquo;what is so special about another Switch clone?&amp;rdquo; if you
 don&amp;rsquo;t know what it is, and if you do you may ask &amp;ldquo;what is so special
-about a handheld pc?&amp;rdquo;&lt;/p></description></item><item><title>My first post</title><link>http://arian-d.github.io/blog/posts/my-first-post/</link><pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/my-first-post/</guid><description>&lt;p>Hi,&lt;/p>
-&lt;p>I frankly don&amp;rsquo;t know where to begin, but I am glad you &lt;em>somehow&lt;/em> found
-your way here.&lt;/p>
-&lt;h2 id="why">Why&lt;/h2>
-&lt;p>The entire reason behind me starting this was a braindump. You may
+about a handheld pc?&amp;rdquo;&lt;/p&gt;</description></item><item><title>My first post</title><link>http://arian-d.github.io/blog/posts/my-first-post/</link><pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/my-first-post/</guid><description>&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;I frankly don&amp;rsquo;t know where to begin, but I am glad you &lt;em&gt;somehow&lt;/em&gt; found
+your way here.&lt;/p&gt;
+&lt;h2 id="why"&gt;Why&lt;/h2&gt;
+&lt;p&gt;The entire reason behind me starting this was a braindump. You may
 share the same experience of gulping down a large amount of coffee,
 flexing your fingers, and browsing the web or frantically coding away
-at your mechanical keyboard.&lt;/p>
-&lt;p>Whatever it may be, many of those great days (and nights) ended up being
+at your mechanical keyboard.&lt;/p&gt;
+&lt;p&gt;Whatever it may be, many of those great days (and nights) ended up being
 wasted for not writing down what I did, learned, discovered,
-regretted, etc.&lt;/p></description></item></channel></rss>
+regretted, etc.&lt;/p&gt;</description></item></channel></rss>
