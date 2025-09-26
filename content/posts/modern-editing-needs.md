@@ -94,7 +94,7 @@ Motion→Action modal editing out of the box
     my first choices.
 
 
-### Who lacks the bare minimums? {#who-lacks-the-bare-minimums}
+### Who meets the bare minimums? {#who-meets-the-bare-minimums}
 
 [Helix](https://helix-editor.com/)
 : Helix is my favorite text editor. Helix took its

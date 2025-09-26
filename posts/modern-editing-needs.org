@@ -70,7 +70,7 @@ reflect anyone else's, but to me, these are the bare minimums in 2025.
   do not like Vim's modal editing, so Kakoune, Meow, or Helix are
   my first choices.
 
-** Who lacks the bare minimums?
+** Who meets the bare minimums?
 - [[https://helix-editor.com/][Helix]] :: Helix is my favorite text editor. Helix took its
   Motion→Action model [[https://docs.helix-editor.com/usage.html#selection-first-editing][from Kakoune]], and while Kakoune has a much nicer
   defaults, it lacks many features that I consider to be
