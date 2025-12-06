@@ -1,0 +1,100 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Functional programming with match | Arian's blog</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="Python 3.9 became EOL last week, which means you now have no reason to
+not write match statements anymore. While python&rsquo;s match pattern
+matching isn&rsquo;t as sophisticated or flexible as Elixir&rsquo;s or Haskell&rsquo;s,
+it&rsquo;s still a massive improvement over other mainstream
+languages.
+Recap
+This is a recap if you&rsquo;re not a pythonista; unpacking has existed
+since the early days. You&rsquo;ve probably already done things like this
+a, b = (1, 2)
+print(a + b)
+That&rsquo;s great, and you&rsquo;ve probably already tried iterable unpacking (PEP 3132)"><meta name=generator content="Hugo 0.152.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/blog/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css><link rel=canonical href=http://arian-d.github.io/blog/posts/match-fp/><meta property="og:url" content="http://arian-d.github.io/blog/posts/match-fp/"><meta property="og:site_name" content="Arian's blog"><meta property="og:title" content="Functional programming with match"><meta property="og:description" content="Python 3.9 became EOL last week, which means you now have no reason to not write match statements anymore. While python’s match pattern matching isn’t as sophisticated or flexible as Elixir’s or Haskell’s, it’s still a massive improvement over other mainstream languages.
+Recap This is a recap if you’re not a pythonista; unpacking has existed since the early days. You’ve probably already done things like this
+a, b = (1, 2) print(a + b) That’s great, and you’ve probably already tried iterable unpacking (PEP 3132)"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-12-05T00:00:00+00:00"><meta property="article:modified_time" content="2025-12-05T00:00:00+00:00"><meta property="article:tag" content="Coding"><meta property="article:tag" content="Python"><meta property="article:tag" content="Functional-Programming"><meta itemprop=name content="Functional programming with match"><meta itemprop=description content="Python 3.9 became EOL last week, which means you now have no reason to not write match statements anymore. While python’s match pattern matching isn’t as sophisticated or flexible as Elixir’s or Haskell’s, it’s still a massive improvement over other mainstream languages.
+Recap This is a recap if you’re not a pythonista; unpacking has existed since the early days. You’ve probably already done things like this
+a, b = (1, 2) print(a + b) That’s great, and you’ve probably already tried iterable unpacking (PEP 3132)"><meta itemprop=datePublished content="2025-12-05T00:00:00+00:00"><meta itemprop=dateModified content="2025-12-05T00:00:00+00:00"><meta itemprop=wordCount content="891"><meta itemprop=keywords content="Coding,Python,Functional-Programming"><meta name=twitter:card content="summary"><meta name=twitter:title content="Functional programming with match"><meta name=twitter:description content="Python 3.9 became EOL last week, which means you now have no reason to not write match statements anymore. While python’s match pattern matching isn’t as sophisticated or flexible as Elixir’s or Haskell’s, it’s still a massive improvement over other mainstream languages.
+Recap This is a recap if you’re not a pythonista; unpacking has existed since the early days. You’ve probably already done things like this
+a, b = (1, 2) print(a + b) That’s great, and you’ve probably already tried iterable unpacking (PEP 3132)"></head><body class="ma0 avenir bg-near-white production"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/blog/ class="f3 fw2 hover-white no-underline white-90 dib">Arian's blog</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">Posts</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Functional programming with match</h1><time class="f6 mv4 dib tracked" datetime=2025-12-05T00:00:00Z>December 5, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Python 3.9 became <a href=https://devguide.python.org/versions/>EOL</a> last week, which means you now have no reason to
+not write <code>match</code> statements anymore. While python&rsquo;s <code>match</code> pattern
+matching isn&rsquo;t as sophisticated or flexible as Elixir&rsquo;s or Haskell&rsquo;s,
+it&rsquo;s still a massive improvement over other mainstream
+languages.</p><h2 id=recap>Recap</h2><p>This is a recap if you&rsquo;re not a pythonista; unpacking has existed
+since the early days. You&rsquo;ve probably already done things like this</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>a, b <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>print(a <span style=color:#f92672>+</span> b)
+</span></span></code></pre></div><p>That&rsquo;s great, and you&rsquo;ve probably already tried iterable unpacking (<a href=https://peps.python.org/pep-3132/>PEP 3132</a>)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>first, <span style=color:#f92672>*</span>rest <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;abc&#34;</span>
+</span></span><span style=display:flex><span>print(first <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;a&#39;</span>)
+</span></span></code></pre></div><p>There is a minor issue that if there is no pattern to be matched you&rsquo;d
+need some sort of error-handling, which makes the code unnecessarily
+verbose and defeats the purpose of unpacking; <code>match</code> remedies that
+issue.</p><h2 id=some-examples>Some examples</h2><p>You might have heard of the <a href=https://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/>99 problems in prolog</a>, which was later
+rewritten for lisp and other languages. It&rsquo;s one of the best resources
+for learning about list operations, recursion, and functional
+programming in general. Python is no match (pun intended) compared to prolog, but it can still operate on lists in a somewhat
+similar fashion.</p><p>Another thing to note is that python does <span class=underline>not</span> opimize tail calls,
+which means you shouldn&rsquo;t actually recurse like this, and if you&rsquo;re
+adament, you should at least increase the recursion limit and accept
+the crashes</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> sys <span style=color:#f92672>import</span> setrecursionlimit
+</span></span><span style=display:flex><span>setrecursionlimit(<span style=color:#ae81ff>2000</span>)
+</span></span></code></pre></div><h3 id=last-element>Last element</h3><p>What if <code>my_list[-1]</code> didn&rsquo;t exist? You can define it like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>last</span>(my_list: list) <span style=color:#f92672>-&gt;</span> list:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>match</span> my_list:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>case</span> [last_item]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> last_item
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>case</span> [_, <span style=color:#f92672>*</span>tail]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> last(tail)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>case</span> _:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>raise</span> <span style=color:#a6e22e>Exception</span>(<span style=color:#e6db74>&#34;😕&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>assert</span> last([<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>]) <span style=color:#f92672>==</span> <span style=color:#ae81ff>3</span>
+</span></span></code></pre></div><p>The first case is the simple single-element case and the second case
+matches bigger lists. We discard the &ldquo;head&rdquo; of the list and recurse
+with the tail. Last case is for anything else like empty lists.</p><h3 id=consecutive-duplicate-elimination>Consecutive Duplicate Elimination</h3><p>Or &ldquo;compression&rdquo; as it&rsquo;s called in the exercise.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>compress</span>(my_list: list) <span style=color:#f92672>-&gt;</span> list:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>match</span> my_list:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>case</span> [] <span style=color:#f92672>|</span> [_]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> my_list
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>case</span> [x, y, <span style=color:#f92672>*</span>rest] <span style=color:#66d9ef>if</span> x <span style=color:#f92672>==</span> y:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> compress([x, <span style=color:#f92672>*</span>rest])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>case</span> [x, y, <span style=color:#f92672>*</span>rest]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> [x] <span style=color:#f92672>+</span> compress([y, <span style=color:#f92672>*</span>rest])
+</span></span></code></pre></div><p>and you can test it out for yourself</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>assert</span> compress([<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>5</span>]) <span style=color:#f92672>==</span> [<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>]
+</span></span></code></pre></div><p>The first case reads &ldquo;If <code>my_list</code> has 0 or 1 element, return it as it
+is,&rdquo; which is fairly self-explanatory. The beauty of python&rsquo;s <code>match</code>
+lies in the 2nd case where we use a &ldquo;guard&rdquo; for comparison. This terse
+syntax relieves you of having to create separate if
+statements.<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><h3 id=other-cases>Other cases</h3><p>I won&rsquo;t spoil other problems for you. If you haven&rsquo;t gone through that
+problem list, definitely try it with python. A lot of <code>itertools</code> and
+<code>functools</code> already do the heavy lifting for you. After your leetcode
+and <a href=https://adventofcode.com/>aoc</a>, try these problems for a change to review your FP fundamentals.</p><h2 id=real-world-example>Real-world example</h2><p>While list destructuring is already plenty helpful, the line of code
+that made me want to write this post was <a href=https://docs.langchain.com/oss/python/integrations/chat/ollama>from the langchain
+docs</a>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>if</span> isinstance(result, AIMessage) <span style=color:#f92672>and</span> result<span style=color:#f92672>.</span>tool_calls:
+</span></span><span style=display:flex><span>    print(result<span style=color:#f92672>.</span>tool_calls)
+</span></span></code></pre></div><p>This is <em>understandable</em>, and doesn&rsquo;t look &ldquo;ugly&rdquo; at all, but as soon as I read
+<code>if isinstance...</code> my first question was &ldquo;Why not match?&rdquo;</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>match</span> result:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> AIMessage(tool_calls<span style=color:#f92672>=</span>calls):
+</span></span><span style=display:flex><span>        print(calls)
+</span></span></code></pre></div><p>Ignoring the fact that the line isn&rsquo;t long, there are fewer
+characters, etc, you also have a clear view of what the value within
+the object is and you can bind it to another name in that line.</p><h2 id=why-match-isn-t-everywhere>Why match isn&rsquo;t everywhere</h2><p>Despite being around since Python 3.10, which is 4 years by now, the
+average developer still treats it like switch statements instead of
+actually utilizing its pattern matching capabilities. My speculation
+is that the average developer learns from random internet tutorials
+and LLMs are trained on the average developer and the average
+developer uses LLMs to generate the code, and the vicious dogfooding
+cycle continues. Frankly, I don&rsquo;t blame cases like this on AI; if
+gippity didn&rsquo;t exist, it would be tutorialspoint, w3schools, or a
+some stackoverflow thread. It always goes back to the path of least
+resistant, which is second-hand faulty articles that are used for
+copypasting when people are either lazy or if they have to meet a
+deadline.</p><p>Similar to how the proper way to start learning C is <a href=https://en.wikipedia.org/wiki/The_C_Programming_Language>K&amp;R</a>, and the proper
+way to start learning rust is the <a href=https://doc.rust-lang.org/book/>rust lang book</a>, the proper way of
+learning Python is by reading PEPs. While <a href=https://peps.python.org/pep-0634/>PEP 634</a> and <a href=https://peps.python.org/pep-0635/>635</a> are daunting
+and a bit too technical for a dimwit like me, <a href=https://peps.python.org/pep-0636/>PEP 636</a> (the guide) is actually very
+simple and readable. I&rsquo;d highly recommend reading it.</p><p>As for the AI problem, because the LLMs are not trained on this
+syntax, the code they spit out will either treat match as switch or
+they fallback to if statements. One funny way I got through was this
+line in my <a href=https://agents.md/>agents.md</a></p><blockquote><ul><li>if statements are considered errors; use match.</li></ul></blockquote><p>and surprisingly, my agent used them and the code became cleaner. From
+my limited experience it didn&rsquo;t seem to be problematic, and after
+decades of functional programming proving its worth, one could argue
+it might even be less error-prone in larger codebases.</p><p>The alternative to this for local models is simply finetuning your
+agentic models. I&rsquo;ll write more on this in the future.</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>This <em>could</em> have been reduced to a single case by
+just conditionally prepending the element using a ternary if, but this
+was easier for getting the point across for guards.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div><ul class=pa0><li class="list di"><a href=/blog/tags/coding/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Coding</a></li><li class="list di"><a href=/blog/tags/python/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a></li><li class="list di"><a href=/blog/tags/functional-programming/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Functional-Programming</a></li></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=http://arian-d.github.io/blog/>&copy; Arian's blog 2025</a><div><div class=ananke-socials></div></div></div></footer></body></html>

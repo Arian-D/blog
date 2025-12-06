@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Functional-Programming on Arian's blog</title><link>http://arian-d.github.io/blog/tags/functional-programming/</link><description>Recent content in Functional-Programming on Arian's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://arian-d.github.io/blog/tags/functional-programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Functional programming with match</title><link>http://arian-d.github.io/blog/posts/match-fp/</link><pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate><guid>http://arian-d.github.io/blog/posts/match-fp/</guid><description>&lt;p&gt;Python 3.9 became &lt;a href="https://devguide.python.org/versions/"&gt;EOL&lt;/a&gt; last week, which means you now have no reason to
+not write &lt;code&gt;match&lt;/code&gt; statements anymore. While python&amp;rsquo;s &lt;code&gt;match&lt;/code&gt; pattern
+matching isn&amp;rsquo;t as sophisticated or flexible as Elixir&amp;rsquo;s or Haskell&amp;rsquo;s,
+it&amp;rsquo;s still a massive improvement over other mainstream
+languages.&lt;/p&gt;
+&lt;h2 id="recap"&gt;Recap&lt;/h2&gt;
+&lt;p&gt;This is a recap if you&amp;rsquo;re not a pythonista; unpacking has existed
+since the early days. You&amp;rsquo;ve probably already done things like this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;a, b &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(a &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s great, and you&amp;rsquo;ve probably already tried iterable unpacking (&lt;a href="https://peps.python.org/pep-3132/"&gt;PEP 3132&lt;/a&gt;)&lt;/p&gt;</description></item></channel></rss>
